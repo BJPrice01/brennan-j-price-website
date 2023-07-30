@@ -1,0 +1,50 @@
+body {
+    background-color: #3b3b3b;
+}
+
+p {
+    margin-left: 5%;
+    color: #c5c2b9;
+    font-size: 2vh;
+}
+
+h1 {
+    font-size: 4vh;
+    margin-left: 15%;
+    margin-right: 15%;
+    color: #c5c2b9;
+}
+
+h2 {
+    font-size: 3vh;
+    margin-right: 15%;
+    margin-left: 15%;
+    color: #c5c2b9;
+}
+
+h4 {
+    font-size: 2vh;
+    color: #c5c2b9;
+}
+
+ul {
+    font-size: 2vh;
+    list-style-type: square;
+    margin-left: 5%;
+    color: #c5c2b9;
+}
+
+li::marker {
+    color: #7A0800;
+}
+
+a {
+    color: #7A0800;
+}
+
+hr {
+    background-color: #7A0800;
+    height: 2px;
+    color: #7A0800;
+    width: 80%;
+}
