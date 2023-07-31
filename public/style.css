@@ -1,10 +1,15 @@
+:root{
+    --red: #8b302a;
+    --gray: #b3b3b3;
+}
+
 body {
-    background-color: #c5c2b98c;
+    background-color: var(--gray);
 }
 
 p {
     margin-left: 5%;
-    color: #3b3b3b;
+    color: black;
     font-size: 2vh;
 }
 
@@ -12,40 +17,41 @@ h1 {
     font-size: 4vh;
     margin-left: 15%;
     margin-right: 15%;
-    color: #3b3b3b;
+    color: black;
 }
 
 h2 {
     font-size: 3vh;
     margin-right: 15%;
     margin-left: 15%;
-    color: #3b3b3b;
+    color: black;
 }
 
 h4 {
     font-size: 2vh;
-    color: #3b3b3b;
+    color: black;
 }
 
 ul {
     font-size: 2vh;
     list-style-type: square;
     margin-left: 5%;
-    color: #3b3b3b;
+    color: black;
 }
 
 li::marker {
-    color: #be4037;
+    color: var(--red);
 }
 
 a {
-    color: #be4037;
+    color: var(--red);
+    font-weight: bold;
 }
 
 hr {
-    background-color: #be4037;
+    background-color: var(--red);
     height: 2px;
-    color: #be4037;
+    color: var(--red);
     width: 80%;
 }
 
@@ -57,49 +63,58 @@ hr {
 }
 
 .navLink:link {
-    color: #3b3b3b;
+    color: white;
     text-decoration: none;
 }
 .navLink:visited {
-    color: #3b3b3b;
+    color: white;
     text-decoration: none;
 }
 .navLink:hover {
-    color: #3b3b3b;
+    color: black;
     text-decoration: none;
 }
 .navLink:active {
-    color: #3b3b3b;
+    color: white;
     text-decoration: none;
 }
 
 .navigationElement {
     display:block;
-    color: #3b3b3b;
-    background-color: #be4037;
+    color: white;
+    background-color: var(--red);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 .navigationElement:hover {
-    background-color: #111;
+    color:black;
+}
+
+.navigationElement:hover {
+    background-color: #5858587a;
 }
 
 .Footer{
-    background-color:#be4037;
+    background-color:var(--red);
     font-size: x-large;
 }
 .FooterText{
-    color: #3b3b3b;
+    color: white;
 }
 
 .SocialMedia{
     font-size: x-large;
 }
 .SocialMedia:Link{
-    color: blue;
+    color: white;
 }
 .SocialMedia:visited{
-    color: blue;
+    color: white;
+}
+
+.logo {
+    width: 30px;
+    height: 30px;
 }
