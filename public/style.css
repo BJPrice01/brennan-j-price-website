@@ -1,10 +1,10 @@
 body {
-    background-color: #3b3b3b;
+    background-color: #c5c2b98c;
 }
 
 p {
     margin-left: 5%;
-    color: #c5c2b9;
+    color: #3b3b3b;
     font-size: 2vh;
 }
 
@@ -12,26 +12,26 @@ h1 {
     font-size: 4vh;
     margin-left: 15%;
     margin-right: 15%;
-    color: #c5c2b9;
+    color: #3b3b3b;
 }
 
 h2 {
     font-size: 3vh;
     margin-right: 15%;
     margin-left: 15%;
-    color: #c5c2b9;
+    color: #3b3b3b;
 }
 
 h4 {
     font-size: 2vh;
-    color: #c5c2b9;
+    color: #3b3b3b;
 }
 
 ul {
     font-size: 2vh;
     list-style-type: square;
     margin-left: 5%;
-    color: #c5c2b9;
+    color: #3b3b3b;
 }
 
 li::marker {
