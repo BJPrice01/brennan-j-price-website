@@ -11,10 +11,10 @@ app.engine('handlebars', handlebars.engine({
     defaultView: 'home'
 }));
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000;
 
 app.get('/', function(request, response) {
-	response.render()
+	response.render('home', {layout: 'index'})
 });
 
 // app.get('/test', function(request, response) {
