@@ -17,13 +17,9 @@ app.get('/', function(request, response) {
 	response.render('home', {layout: 'index'})
 });
 
-// app.get('/test', function(request, response) {
-// 	response.type('text/plain')
-// 	response.send('Node.js and Express running on port='+ PORT)
-// });
-
-app.get('/test', (req, res) => res.render('home', {layout: 'index'}));
-
+app.get('/test', function(request, response) {
+	response.render('test', {layout: 'index'})
+});
 app.listen(PORT, function() {
 	console.log("Server is running at http://localhost:3000/")
 });
