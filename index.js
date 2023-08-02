@@ -32,6 +32,11 @@ app.get('/contact', function(request, response) {
 app.get('/test', function(request, response) {
 	response.render('test', {layout: 'index'})
 });
+
+app.use(function(request, response) {
+	response.status(404).render('404', {layout: 'index'})
+});
+
 app.listen(PORT, function() {
 	console.log("Server is running at http://localhost:3000/")
 });
