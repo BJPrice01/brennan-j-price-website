@@ -14,25 +14,30 @@ app.engine('handlebars', handlebars.engine({
 const PORT = process.env.PORT || 3000;
 
 app.get('/', function(request, response) {
-	response.render('home', {layout: 'index'})
+	response.render('home', {layout: 'index'});
 });
 
 app.get('/projects', function(request, response) {
-	response.render('projects', {layout: 'index'})
+	response.render('projects', {layout: 'index'});
 });
 
 app.get('/contact', function(request, response) {
-	response.render('contact', {layout: 'index'})
+	response.render('contact', {layout: 'index'});
 });
 
 app.get('/test', function(request, response) {
-	response.render('test', {layout: 'index'})
+	response.render('test', {layout: 'index'});
+});
+
+app.get('/resume', function(request, response) {
+	response.contentType("application/pdf");
+    response.download('./public/bPriceResume.pdf');
 });
 
 app.use(function(request, response) {
-	response.status(404).render('404', {layout: 'index'})
+	response.status(404).render('404', {layout: 'index'});
 });
 
 app.listen(PORT, function() {
-	console.log("Server is running at http://localhost:3000/")
+	console.log("Server is running at http://localhost:3000/");
 });
