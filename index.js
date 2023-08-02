@@ -17,10 +17,6 @@ app.get('/', function(request, response) {
 	response.render('home', {layout: 'index'})
 });
 
-app.get('/links', function(request, response) {
-	response.render('links', {layout: 'index'})
-});
-
 app.get('/projects', function(request, response) {
 	response.render('projects', {layout: 'index'})
 });

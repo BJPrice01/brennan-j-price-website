@@ -1,6 +1,7 @@
 :root{
     --red: #8b302a;
     --gray: #d6d6d6;
+    --blue: #64cad0;
 }
 
 body {
@@ -116,7 +117,7 @@ hr {
 }
 
 .navigationElement:hover {
-    background-color: #5858587a;
+    background-color: var(--blue);
 }
 
 .Footer{
