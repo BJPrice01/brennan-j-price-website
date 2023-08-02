@@ -122,23 +122,35 @@ hr {
 .Footer{
     background-color:var(--red);
     font-size: x-large;
+    padding:0px;
+    border:0px;
+    margin:0px;
 }
 .FooterText{
     color: white;
+    text-decoration: none;
+    padding:0px;
+    border:0px;
+    margin:0px;
 }
 
 .SocialMedia{
     color:white;
     font-family: droidSansMono;
+    padding:0px;
+    border:0px;
+    margin:0px;
 }
 .SocialMedia:Link{
     color: white;
+    text-decoration: none;
 }
 .SocialMedia:visited{
     color: white;
+    text-decoration: none;
 }
 
 .logo {
-    width: 20px;
-    height: 20px;
+    width: 1em;
+    height: 1em;
 }
