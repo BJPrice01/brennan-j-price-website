@@ -1,6 +1,6 @@
 :root{
     --red: #8b302a;
-    --gray: #b3b3b3;
+    --gray: #d6d6d6;
 }
 
 body {
@@ -14,36 +14,46 @@ body {
     flex:1;
 }
 
+@font-face {
+    font-family: droidSansMono;
+    src: url(DroidSansMono.ttf);
+}
+
 p {
+    font-family: droidSansMono;
     margin-left: 5%;
-    color: black;
+    color: var(--red);
     font-size: 2vh;
 }
 
 h1 {
+    font-family: droidSansMono;
     font-size: 4vh;
     margin-left: 15%;
     margin-right: 15%;
-    color: black;
+    color: var(--red);
 }
 
 h2 {
+    font-family: droidSansMono;
     font-size: 3vh;
     margin-right: 15%;
     margin-left: 15%;
-    color: black;
+    color: var(--red);
 }
 
 h4 {
+    font-family: droidSansMono;
     font-size: 2vh;
-    color: black;
+    color: var(--red);
 }
 
 ul {
+    font-family: droidSansMono;
     font-size: 2vh;
     list-style-type: square;
     margin-left: 5%;
-    color: black;
+    color: var(--red);
 }
 
 li::marker {
@@ -51,6 +61,7 @@ li::marker {
 }
 
 a {
+    font-family: droidSansMono;
     color: var(--red);
     font-weight: bold;
 }
@@ -70,18 +81,22 @@ hr {
 }
 
 .navLink:link {
+    font-family: droidSansMono;
     color: white;
     text-decoration: none;
 }
 .navLink:visited {
+    font-family: droidSansMono;
     color: white;
     text-decoration: none;
 }
 .navLink:hover {
+    font-family: droidSansMono;
     color: black;
     text-decoration: none;
 }
 .navLink:active {
+    font-family: droidSansMono;
     color: white;
     text-decoration: none;
 }
@@ -93,6 +108,7 @@ hr {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-family: droidSansMono;
 }
 
 .navigationElement:hover {
@@ -112,7 +128,8 @@ hr {
 }
 
 .SocialMedia{
-    font-size: x-large;
+    color:white;
+    font-family: droidSansMono;
 }
 .SocialMedia:Link{
     color: white;
@@ -122,6 +139,6 @@ hr {
 }
 
 .logo {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
 }
