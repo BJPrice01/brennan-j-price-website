@@ -5,6 +5,13 @@
 
 body {
     background-color: var(--gray);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.content {
+    flex:1;
 }
 
 p {
