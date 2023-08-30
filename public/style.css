@@ -155,3 +155,32 @@ hr {
     width: 1em;
     height: 1em;
 }
+
+td {
+    border: #8b302a;
+    border-style: solid;
+    border-spacing: 0;
+}
+
+.date {
+    border: #8b302a;
+    border-style: solid;
+}
+
+.inventory {
+    border-collapse: collapse;
+}
+
+button {
+    border:none;
+    background-color: var(--blue);
+}
+
+button:active {
+    background-color: var(--gray);
+}
+
+.tableButton {
+    min-width: 100%;
+    height: 100%;
+}
