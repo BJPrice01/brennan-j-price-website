@@ -1,3 +1,4 @@
+const dotenv = require('dotenv').config();
 const express = require("express");
 const handlebars = require('express-handlebars');
 const app = express();
@@ -15,7 +16,7 @@ app.engine('handlebars', handlebars.engine({
 // zROdIoQcse7IMNrY
 
 const PORT = process.env.PORT || 3000;
-const dbURL = 'mongodb+srv://BrennanP:zROdIoQcse7IMNrY@cluster0.f7spvic.mongodb.net/'
+const dbURL = process.env.MONGO_STRING;
 
 const FoodItem = mongoose.model("FoodItem", new mongoose.Schema(
     {
