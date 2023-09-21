@@ -3,7 +3,9 @@ const express = require("express");
 const handlebars = require('express-handlebars');
 const app = express();
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
 
+app.use(bodyParser({extended: false}));
 app.use(express.static(__dirname + '/public'))
 app.set("views", __dirname + "/views")
 app.set('view engine', 'handlebars');
@@ -60,6 +62,19 @@ const Shelf = mongoose.model("Shelf", new mongoose.Schema(
     }
 ));
 
+const Countdown = mongoose.model("Countdown", new mongoose.Schema(
+    {
+        countId: {
+            type: Number,
+            required: true
+        },
+        countHours: {
+            type:Number,
+            required:true
+        }
+    }
+));
+
 console.log("Connecting to database...");
 mongoose.connect(dbURL)
     .then(()=>{
@@ -98,6 +113,12 @@ hbs.handlebars.registerHelper("makeTable", function(inventory) {
         return dom;
      })
 
+     hbs.handlebars.registerHelper("makeCountdown", function(count) {
+        var curCount = this.count;
+        dom = "<p style='margin-left:0'>"+String(curCount[0].countHours)+"</p>"
+        return dom;
+     })
+
 app.get('/', function(request, response) {
 	response.render('home', {layout: 'index'});
 });
@@ -117,96 +138,124 @@ app.get('/inventory', async function(request, response){
     response.render('inventory', {layout:'index', inventory});
 });
 
-app.get('/test', function(request, response) {
-
-	response.render('test', {layout: 'index'});
+app.get('/countdown', async function(request, response){
+    const count = await Countdown.find({}).lean();
+    response.render('countdown', {layout:'index', count});
 });
+
+app.post('/countdown',async function(request, response){
+    try{
+        Countdown.findOne().then((count => {
+            count.countHours = count.countHours - request.body.countdownAmount;
+            count.save()
+                .catch((e) => {
+                    console.log(e);
+                }).then(
+                    response.redirect('/countdown')
+                );
+        }))
+    }catch(e){
+        console.log(e)
+    }
+});
+
+app.get('/test', function(request, response) {
+    response.render('test', {layout:'index'});
+})
 
 app.post('/test', function(request, response) {
     try{
-        var testFoodType = new FoodType({
-            foodId: 1,
-            foodName:"Rice",
-            description: "Small white grains",
-            quantity:0
-        });
-        testFoodType.save()
-            .catch((e) => {
-                console.log(e);
-            });
-        testFoodType = new FoodType({
-            foodId: 2,
-            foodName:"Beans",
-            description: "The Magical Fruit",
-            quantity:0
-        });
-        testFoodType.save()
-            .catch((e) => {
-                console.log(e);
-            });
-        testFoodType = new FoodType({
-            foodId: 3,
-            foodName:"Potatoes",
-            description: "Boil, Mash, or Stew",
-            quantity:0
-        });
-        testFoodType.save()
-            .catch((e) => {
-                console.log(e);
-            });
+        // var testFoodType = new FoodType({
+        //     foodId: 1,
+        //     foodName:"Rice",
+        //     description: "Small white grains",
+        //     quantity:0
+        // });
+        // testFoodType.save()
+        //     .catch((e) => {
+        //         console.log(e);
+        //     });
+        // testFoodType = new FoodType({
+        //     foodId: 2,
+        //     foodName:"Beans",
+        //     description: "The Magical Fruit",
+        //     quantity:0
+        // });
+        // testFoodType.save()
+        //     .catch((e) => {
+        //         console.log(e);
+        //     });
+        // testFoodType = new FoodType({
+        //     foodId: 3,
+        //     foodName:"Potatoes",
+        //     description: "Boil, Mash, or Stew",
+        //     quantity:0
+        // });
+        // testFoodType.save()
+        //     .catch((e) => {
+        //         console.log(e);
+        //     });
 
 
-        var testFoodItem = new FoodItem({
-            foodId: 1,
-            dateMade:"Today"
-            });
-        testFoodItem.save()
-            .catch((e) => {
-                console.log(e);
-            });
-        var testFoodItem = new FoodItem({
-            foodId: 2,
-            dateMade:"Yesterday"
-            });
-        testFoodItem.save()
-            .catch((e) => {
-                console.log(e);
-            });
-        var testFoodItem = new FoodItem({
-            foodId: 3,
-            dateMade:"Last Week"
-            });
-        testFoodItem.save()
-            .catch((e) => {
-                console.log(e);
-            });
+        // var testFoodItem = new FoodItem({
+        //     foodId: 1,
+        //     dateMade:"Today"
+        //     });
+        // testFoodItem.save()
+        //     .catch((e) => {
+        //         console.log(e);
+        //     });
+        // var testFoodItem = new FoodItem({
+        //     foodId: 2,
+        //     dateMade:"Yesterday"
+        //     });
+        // testFoodItem.save()
+        //     .catch((e) => {
+        //         console.log(e);
+        //     });
+        // var testFoodItem = new FoodItem({
+        //     foodId: 3,
+        //     dateMade:"Last Week"
+        //     });
+        // testFoodItem.save()
+        //     .catch((e) => {
+        //         console.log(e);
+        //     });
 
-        var testFoodItem = new FoodItem({
-            foodId: 1,
-            dateMade:"Tuesday"
-            });
-        testFoodItem.save()
-            .catch((e) => {
-                console.log(e);
-            });
-        var testFoodItem = new FoodItem({
-            foodId: 2,
-            dateMade:"Last Month"
-            });
-        testFoodItem.save()
-            .catch((e) => {
-                console.log(e);
-            });
-        var testFoodItem = new FoodItem({
-            foodId: 3,
-            dateMade:"Next week"
-            });
-        testFoodItem.save()
-            .catch((e) => {
-                console.log(e);
-            });
-
-        response.redirect('/test')
+        // var testFoodItem = new FoodItem({
+        //     foodId: 1,
+        //     dateMade:"Tuesday"
+        //     });
+        // testFoodItem.save()
+        //     .catch((e) => {
+        //         console.log(e);
+        //     });
+        // var testFoodItem = new FoodItem({
+        //     foodId: 2,
+        //     dateMade:"Last Month"
+        //     });
+        // testFoodItem.save()
+        //     .catch((e) => {
+        //         console.log(e);
+        //     });
+        // var testFoodItem = new FoodItem({
+        //     foodId: 3,
+        //     dateMade:"Next week"
+        //     });
+        // testFoodItem.save()
+        //     .catch((e) => {
+        //         console.log(e);
+        //     });
+       
+        Countdown.findOne().then((count => {
+            count.countHours = request.body.countdownAmount;
+            count.save()
+                .catch((e) => {
+                    console.log(e);
+                }).then(
+                    response.redirect('/test')
+                );
+        }))
     }catch(e){
         console.log(e)
     }

@@ -1,0 +1,14 @@
+<div style="text-align: center;">
+    <h1>Lori's Hours Remaining</h1>
+    <hr />
+</div>
+<div style="text-align:center" >
+    {{{makeCountdown "count"}}}
+</div>
+
+<div style="text-align:center" >
+    <form id="countdown" action="/countdown" method="POST">
+        <input name="countdownAmount" id="countdownAmount" type="text" value=5> </br>
+        <button>Submit</button>
+    </form>
+</div>
