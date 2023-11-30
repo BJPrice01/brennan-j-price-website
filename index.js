@@ -3,7 +3,9 @@ const express = require("express");
 const handlebars = require('express-handlebars');
 const app = express();
 const mongoose = require('mongoose')
+const nodemailer = require('nodemailer')
 const bodyParser = require('body-parser')
+const fs = require('fs')
 
 app.use(bodyParser({extended: false}));
 app.use(express.static(__dirname + '/public'))
@@ -14,8 +16,6 @@ app.engine('handlebars', handlebars.engine({
     partialsDir: __dirname + '/views/partials',
     defaultView: 'home'
 }));
-
-// zROdIoQcse7IMNrY
 
 const PORT = process.env.PORT || 3000;
 const dbURL = process.env.MONGO_STRING;
@@ -82,6 +82,19 @@ mongoose.connect(dbURL)
     })
     .catch((err) => console.log(err));
 
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    port: 587,
+    host: "smtp.gmail.com",
+    auth: {
+        user: process.env.NODEMAILER_EMAIL,
+        pass: process.env.NODEMAILER_PASSWORD
+    },
+    secure: true
+});
+
+
+
 var hbs = handlebars.create({});
 hbs.handlebars.registerHelper("makeTable", function(inventory) {
         var curInv = this.inventory;
@@ -130,6 +143,25 @@ app.get('/projects', function(request, response) {
 app.get('/contact', function(request, response) {
 	response.render('contact', {layout: 'index'});
 });
+
+app.post('/contact', (req, res) => {
+    const {name, phone, email, subject, text} = req.body;
+    const finalText = "From: " + name + " - " + email + "\nPhone:" + phone + "\n" + text
+    const mailData = {
+        from: process.env.NODEMAILER_EMAIL,
+        to: process.env.NODEMAILER_EMAIL_TO,
+        subject: subject,
+        text: finalText,
+    }
+    transporter.sendMail(mailData, function(err, info){
+        if(err){
+            console.log("Err: ")
+            console.log(err)
+        } else {
+            res.redirect('/contact')
+        }
+    });
+})
 
 app.get('/inventory', async function(request, response){
     const types = await FoodType.find({}).lean();
@@ -262,8 +294,9 @@ app.post('/test', function(request, response) {
 })
 
 app.get('/resume', function(request, response) {
+    let resume = fs.readFileSync('public/brennanPriceResume.pdf')
 	response.contentType("application/pdf");
-    response.download('./public/bPriceResume.pdf');
+    response.send(resume);
 });
 
 app.use(function(request, response) {

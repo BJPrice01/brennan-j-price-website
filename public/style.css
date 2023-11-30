@@ -4,6 +4,304 @@
     --blue: #64cad0;
 }
 
+.hidden {
+    display: none;
+}
+
+body {
+    background-color: var(--gray);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.content {
+    flex:1;
+}
+
+@font-face {
+    font-family: droidSansMono;
+    src: url(DroidSansMono.ttf);
+}
+
+p {
+    font-family: droidSansMono;
+    margin-left: 5%;
+    color: var(--red);
+    font-size: smaller;
+}
+
+.subtitle {
+    font-size: x-small;
+}
+
+h3 {
+    font-family: droidSansMono;
+    font-size: 4vh;
+    margin-left: 15%;
+    margin-right: 15%;
+    color: var(--red);
+}
+
+h2 {
+    font-family: droidSansMono;
+    font-size: 3vh;
+    margin-right: 15%;
+    margin-left: 15%;
+    color: var(--red);
+}
+
+h4 {
+    font-family: droidSansMono;
+    font-size: 2vh;
+    color: var(--red);
+}
+
+ul {
+    font-family: droidSansMono;
+    font-size: 2vh;
+    list-style-type: square;
+    margin-left: 5%;
+    color: var(--red);
+}
+
+li::marker {
+    color: var(--red);
+}
+
+a {
+    font-family: droidSansMono;
+    color: var(--red);
+    font-weight: bold;
+}
+
+hr {
+    background-color: var(--red);
+    height: 2px;
+    color: var(--red);
+}
+
+.navigationBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    flex-shrink: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navLink:link {
+    font-family: droidSansMono;
+    color: white;
+    text-decoration: none;
+}
+.navLink:visited {
+    font-family: droidSansMono;
+    color: white;
+    text-decoration: none;
+}
+.navLink:hover {
+    font-family: droidSansMono;
+    color: black;
+    text-decoration: none;
+}
+.navLink:active {
+    font-family: droidSansMono;
+    color: white;
+    text-decoration: none;
+}
+
+.navigationElement {
+    float:left;
+    display:block;
+    color: white;
+    background-color: var(--red);
+    text-align: center;
+    padding: 7px 8px;
+    text-decoration: none;
+    font-family: droidSansMono;
+}
+
+.navigationElement:hover {
+    color:black;
+}
+
+.navigationElement:hover {
+    background-color: var(--blue);
+}
+
+.Footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    background-color:var(--red);
+    padding:0px;
+    border:0px;
+    margin:0px;
+    margin-top: auto;
+}
+
+.FooterText{
+    color: white;
+    padding:0px;
+    border:0px;
+    margin:0px;
+}
+
+.SocialMedia{
+    color:white;
+    font-family: droidSansMono;
+    padding:0px;
+    border:0px;
+    margin:0px;
+}
+.SocialMedia:Link{
+    color: white;
+    text-decoration: none;
+}
+.SocialMedia:visited{
+    color: white;
+    text-decoration: none;
+}
+
+.logo {
+    width: 1em;
+    height: 1em;
+    padding-left: 5px;
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    min-height: 100vh
+}
+ 
+.layoutElementVertical {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.layoutElementHorizontal {
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.profilePicture {
+    max-width: 95%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.uiWidth {
+    width: 75%;
+}
+
+.main {
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.animated {
+    animation: animatedEnterance 1s;
+}
+
+@keyframes animatedEnterance {
+    from {
+        margin-right: 5%;
+        margin-left: -5%;
+    }
+
+    to{
+        margin-right: 0%;
+        margin-left: 0%;
+    }
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.projectBullet {
+    font-size: small;
+    width: 60vw;
+}
+.thumbnail {
+    width: 25vw;
+    flex: 1 0 auto;
+    padding: 0%;
+    margin: 0%;
+    border: 2px solid var(--red);
+    text-align: center;
+}
+
+.project {
+    padding: 0%;
+    margin: 0%;
+    border: 0px;
+}
+
+.description {
+    align-self:flex-start;
+    width: 70vw;
+    flex: 3 0 auto;
+    text-align: left;
+}
+
+.message {
+    font-family: droidSansMono;
+    font-size: 2vh;
+    margin-left: 5%;
+    color: var(--red);
+}
+
+.message::marker {
+    color: transparent;;
+}
+
+.messageInput {
+    height: 3em;
+    width: 40em;
+}
+
+.submitButton {
+    border: none;
+    text-align: center;
+    display: flex;
+    align-self: center;
+    color: white;
+    background-color: var(--red);
+    text-decoration: none;
+    font-family: droidSansMono;
+    margin: 5px;
+    font-size: 2vh;
+    padding:  7px 8px;
+}
+
+.submitButton:hover {
+    color: black;
+    background-color: var(--blue);
+    cursor:pointer;
+}
+
+/* :root{
+    --red: #8b302a;
+    --gray: #d6d6d6;
+    --blue: #64cad0;
+}
+
 body {
     background-color: var(--gray);
     display: flex;
@@ -183,4 +481,4 @@ button:active {
 .tableButton {
     min-width: 100%;
     height: 100%;
-}
+} */
