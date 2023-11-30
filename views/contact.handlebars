@@ -1,2 +1,17 @@
-<h1>This is the contact page</h1>
-<hr />
+<div class="layoutElementVertical main animated">
+    <form id="contact" action="/contact" method="POST">
+        <label class="message"><p>Name: </p></label>
+        <input class="messageInput" name="name" id="name" type="text" value=""> </br>
+        <label class="message"><p>Phone: </p></label>
+        <input class="messageInput" name="phone" id="phone" type="phone" value=""> </br>
+        <label class="message"><p>Email: </p></label>
+        <input class="messageInput" name="email" id="email" type="email" value=""> </br>
+        <label class="message"><p>Subject: </p></label>
+        <input class="messageInput" name="subject" id="subject" type="text" value=""> </br>
+        <label class="message"><p>Text: </p></label>
+        <input class="messageInput" name="text" id="text" type="text" value=""> </br>
+        <div class="layoutElementHorizontal">
+            <button class="submitButton">Submit</button>
+        </div>
+    </form>
+</div>
