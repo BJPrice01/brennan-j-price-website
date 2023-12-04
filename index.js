@@ -8,8 +8,8 @@ const bodyParser = require('body-parser')
 const fs = require('fs')
 const http = require('http');
 const https = require('https');
-var privateKey  = fs.readFileSync('./sslcert/server.key', 'utf8');
-var certificate = fs.readFileSync('./sslcert/server.cert', 'utf8');
+var privateKey  = fs.readFileSync(process.env.KEY, 'utf8');
+var certificate = fs.readFileSync(process.env.CERT, 'utf8');
 
 var credentials = {key: privateKey, cert: certificate};
 
