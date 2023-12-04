@@ -6,6 +6,12 @@ const mongoose = require('mongoose')
 const nodemailer = require('nodemailer')
 const bodyParser = require('body-parser')
 const fs = require('fs')
+const http = require('http');
+const https = require('https');
+var privateKey  = fs.readFileSync('./sslcert/server.key', 'utf8');
+var certificate = fs.readFileSync('./sslcert/server.cert', 'utf8');
+
+var credentials = {key: privateKey, cert: certificate};
 
 app.use(bodyParser({extended: false}));
 app.use(express.static(__dirname + '/public'))
@@ -17,7 +23,11 @@ app.engine('handlebars', handlebars.engine({
     defaultView: 'home'
 }));
 
-const PORT = process.env.PORT || 3000;
+var httpServer = http.createServer(app);
+var httpsServer = https.createServer(credentials, app);
+
+
+const PORT = process.env.PORT || 443;
 const dbURL = process.env.MONGO_STRING;
 
 const FoodItem = mongoose.model("FoodItem", new mongoose.Schema(
@@ -306,3 +316,12 @@ app.use(function(request, response) {
 app.listen(PORT, function() {
 	console.log("Server is running at http://localhost:3000/");
 });
+
+httpsServer.listen(8443, function() {
+    console.log("Https server on port 8443");
+});
+
+httpServer.listen(8080, function() {
+    console.log("Http server on port 8080");
+});
+
