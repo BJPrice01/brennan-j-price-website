@@ -27,7 +27,7 @@ var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
 
 
-const PORT = process.env.PORT || 443;
+const PORT = process.env.PORT || 3000;
 const dbURL = process.env.MONGO_STRING;
 
 const FoodItem = mongoose.model("FoodItem", new mongoose.Schema(
