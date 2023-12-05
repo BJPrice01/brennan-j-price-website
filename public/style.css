@@ -8,6 +8,55 @@
     display: none;
 }
 
+.layoutElementVertical {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.layoutElementHorizontal {
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.thirty{
+    width: 30%;
+}
+.seventy{
+    width: 70%;
+}
+
+@media only screen and (max-width:768px){
+    .layoutElementVertical {
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        width: 90%;
+    }
+    
+    .layoutElementHorizontal {
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        width: 90%;
+    }
+    
+    .reverseColResponsive {
+        flex-flow: column-reverse wrap-reverse;
+    }
+}
+
+
+
 body {
     background-color: var(--gray);
     display: flex;
@@ -28,7 +77,9 @@ p {
     font-family: droidSansMono;
     margin-left: 5%;
     color: var(--red);
-    font-size: smaller;
+    font-size: medium;
+    line-height: 1em;
+    color: black;
 }
 
 .subtitle {
@@ -145,7 +196,7 @@ hr {
     padding:0px;
     border:0px;
     margin:0px;
-    margin-top: auto;
+    margin-top: 10px;
 }
 
 .FooterText{
@@ -185,7 +236,7 @@ hr {
     min-height: 100vh
 }
  
-.layoutElementVertical {
+.layoutElementVerticalNonResponsive {
     display: flex;
     flex-direction:column;
     justify-content: center;
@@ -193,7 +244,7 @@ hr {
     align-self: center;
 }
 
-.layoutElementHorizontal {
+.layoutElementHorizontalNonResponsive {
     display: flex;
     flex-direction:row;
     justify-content: center;
@@ -205,6 +256,7 @@ hr {
     max-width: 95%;
     height: auto;
     border-radius: 50%;
+    margin: 10px;
 }
 
 .uiWidth {
@@ -296,189 +348,3 @@ hr {
     cursor:pointer;
 }
 
-/* :root{
-    --red: #8b302a;
-    --gray: #d6d6d6;
-    --blue: #64cad0;
-}
-
-body {
-    background-color: var(--gray);
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
-
-.content {
-    flex:1;
-}
-
-@font-face {
-    font-family: droidSansMono;
-    src: url(DroidSansMono.ttf);
-}
-
-p {
-    font-family: droidSansMono;
-    margin-left: 5%;
-    color: var(--red);
-    font-size: 2vh;
-}
-
-h1 {
-    font-family: droidSansMono;
-    font-size: 4vh;
-    margin-left: 15%;
-    margin-right: 15%;
-    color: var(--red);
-}
-
-h2 {
-    font-family: droidSansMono;
-    font-size: 3vh;
-    margin-right: 15%;
-    margin-left: 15%;
-    color: var(--red);
-}
-
-h4 {
-    font-family: droidSansMono;
-    font-size: 2vh;
-    color: var(--red);
-}
-
-ul {
-    font-family: droidSansMono;
-    font-size: 2vh;
-    list-style-type: square;
-    margin-left: 5%;
-    color: var(--red);
-}
-
-li::marker {
-    color: var(--red);
-}
-
-a {
-    font-family: droidSansMono;
-    color: var(--red);
-    font-weight: bold;
-}
-
-hr {
-    background-color: var(--red);
-    height: 2px;
-    color: var(--red);
-    width: 80%;
-}
-
-.navigationBar {
-    display: inline-block;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.navLink:link {
-    font-family: droidSansMono;
-    color: white;
-    text-decoration: none;
-}
-.navLink:visited {
-    font-family: droidSansMono;
-    color: white;
-    text-decoration: none;
-}
-.navLink:hover {
-    font-family: droidSansMono;
-    color: black;
-    text-decoration: none;
-}
-.navLink:active {
-    font-family: droidSansMono;
-    color: white;
-    text-decoration: none;
-}
-
-.navigationElement {
-    display:block;
-    color: white;
-    background-color: var(--red);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-family: droidSansMono;
-}
-
-.navigationElement:hover {
-    color:black;
-}
-
-.navigationElement:hover {
-    background-color: var(--blue);
-}
-
-.Footer{
-    background-color:var(--red);
-    font-size: x-large;
-    padding:0px;
-    border:0px;
-    margin:0px;
-}
-.FooterText{
-    color: white;
-    text-decoration: none;
-    padding:0px;
-    border:0px;
-    margin:0px;
-}
-
-.SocialMedia{
-    color:white;
-    font-family: droidSansMono;
-    padding:0px;
-    border:0px;
-    margin:0px;
-}
-.SocialMedia:Link{
-    color: white;
-    text-decoration: none;
-}
-.SocialMedia:visited{
-    color: white;
-    text-decoration: none;
-}
-
-.logo {
-    width: 1em;
-    height: 1em;
-}
-
-td {
-    border: #8b302a;
-    border-style: solid;
-    border-spacing: 0;
-}
-
-.date {
-    border: #8b302a;
-    border-style: solid;
-}
-
-.inventory {
-    border-collapse: collapse;
-}
-
-button {
-    border:none;
-    background-color: var(--blue);
-}
-
-button:active {
-    background-color: var(--gray);
-}
-
-.tableButton {
-    min-width: 100%;
-    height: 100%;
-} */
