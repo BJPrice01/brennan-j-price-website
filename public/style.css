@@ -85,6 +85,14 @@
     text-decoration: none;
 }
 
+h2 {
+    font-family: droidSansMono;
+    margin-right: 15%;
+    margin-left: 15%;
+    color: var(--red);
+    font-weight: bolder;
+}
+
 @media only screen and (max-width:768px){
     .layoutElementVertical {
         display: flex;
@@ -154,6 +162,16 @@
         color: white;
         text-decoration: none;
     }
+
+    h2 {
+        font-family: droidSansMono;
+        color: var(--red);
+        font-weight: bolder;
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
 }
 
 body {
@@ -189,14 +207,6 @@ h3 {
     font-family: droidSansMono;
     margin-left: 15%;
     margin-right: 15%;
-    color: var(--red);
-    font-weight: 550;
-}
-
-h2 {
-    font-family: droidSansMono;
-    margin-right: 15%;
-    margin-left: 15%;
     color: var(--red);
     font-weight: 550;
 }
