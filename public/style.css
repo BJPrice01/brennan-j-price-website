@@ -31,6 +31,60 @@
     width: 70%;
 }
 
+.thumbnail {
+    width: 25vw;
+    flex: 1 0 auto;
+    padding: 0%;
+    margin: 0%;
+    border: 2px solid var(--red);
+    text-align: center;
+}
+
+.navigationBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    flex-shrink: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 75%;
+    flex-basis: 100%;
+    background-color: var(--red);
+}
+
+.navLink {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.navLink:link {
+    font-family: droidSansMono;
+    color: white;
+    text-decoration: none;
+}
+.navLink:visited {
+    font-family: droidSansMono;
+    color: white;
+    text-decoration: none;
+}
+.navLink:hover {
+    font-family: droidSansMono;
+    color: black;
+    text-decoration: none;
+    background-color: var(--blue);
+}
+.navLink:active {
+    font-family: droidSansMono;
+    color: white;
+    text-decoration: none;
+}
+
 @media only screen and (max-width:768px){
     .layoutElementVertical {
         display: flex;
@@ -53,9 +107,54 @@
     .reverseColResponsive {
         flex-flow: column-reverse wrap-reverse;
     }
+
+    .thumbnail {
+        width: 75vw;
+        flex: 1 0 auto;
+        padding: 0%;
+        margin: 0%;
+        border: 2px solid var(--red);
+        text-align: center;
+    }
+
+    .navigationBar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+        align-items: center;
+        flex-shrink: 0;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 75%;
+        flex-basis: 100%;
+    }
+
+    .navLink {
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 0px;
+        text-align: center;
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+    .navLink:link {
+        font-family: droidSansMono;
+        color: white;
+        text-decoration: none;
+    }
+    .navLink:visited {
+        font-family: droidSansMono;
+        color: white;
+        text-decoration: none;
+    }
+    .navLink:active {
+        font-family: droidSansMono;
+        color: white;
+        text-decoration: none;
+    }
 }
-
-
 
 body {
     background-color: var(--gray);
@@ -79,7 +178,7 @@ p {
     color: var(--red);
     font-size: medium;
     line-height: 1em;
-    color: black;
+    font-weight: 550;
 }
 
 .subtitle {
@@ -88,29 +187,30 @@ p {
 
 h3 {
     font-family: droidSansMono;
-    font-size: 4vh;
     margin-left: 15%;
     margin-right: 15%;
     color: var(--red);
+    font-weight: 550;
 }
 
 h2 {
     font-family: droidSansMono;
-    font-size: 3vh;
     margin-right: 15%;
     margin-left: 15%;
     color: var(--red);
+    font-weight: 550;
 }
 
 h4 {
     font-family: droidSansMono;
-    font-size: 2vh;
     color: var(--red);
+    font-weight: 550;
 }
 
 ul {
     font-family: droidSansMono;
-    font-size: 2vh;
+    font-size: 1em;
+    font-weight: 550;
     list-style-type: square;
     margin-left: 5%;
     color: var(--red);
@@ -130,58 +230,6 @@ hr {
     background-color: var(--red);
     height: 2px;
     color: var(--red);
-}
-
-.navigationBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-self: center;
-    align-items: center;
-    flex-shrink: 0;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.navLink:link {
-    font-family: droidSansMono;
-    color: white;
-    text-decoration: none;
-}
-.navLink:visited {
-    font-family: droidSansMono;
-    color: white;
-    text-decoration: none;
-}
-.navLink:hover {
-    font-family: droidSansMono;
-    color: black;
-    text-decoration: none;
-}
-.navLink:active {
-    font-family: droidSansMono;
-    color: white;
-    text-decoration: none;
-}
-
-.navigationElement {
-    float:left;
-    display:block;
-    color: white;
-    background-color: var(--red);
-    text-align: center;
-    padding: 7px 8px;
-    text-decoration: none;
-    font-family: droidSansMono;
-}
-
-.navigationElement:hover {
-    color:black;
-}
-
-.navigationElement:hover {
-    background-color: var(--blue);
 }
 
 .Footer{
@@ -287,21 +335,15 @@ hr {
 }
 
 .projectBullet {
-    font-size: small;
+    font-size: medium;
+    font-weight: 550;
     width: 60vw;
-}
-.thumbnail {
-    width: 25vw;
-    flex: 1 0 auto;
-    padding: 0%;
-    margin: 0%;
-    border: 2px solid var(--red);
-    text-align: center;
 }
 
 .project {
     padding: 0%;
     margin: 0%;
+    margin-top: 10px;
     border: 0px;
 }
 
@@ -315,7 +357,6 @@ hr {
 .message {
     font-family: droidSansMono;
     font-size: 2vh;
-    margin-left: 5%;
     color: var(--red);
 }
 
@@ -325,7 +366,7 @@ hr {
 
 .messageInput {
     height: 3em;
-    width: 40em;
+    width: 80%;
 }
 
 .submitButton {
