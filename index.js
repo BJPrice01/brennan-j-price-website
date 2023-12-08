@@ -103,8 +103,6 @@ const transporter = nodemailer.createTransport({
     secure: true
 });
 
-
-
 var hbs = handlebars.create({});
 hbs.handlebars.registerHelper("makeTable", function(inventory) {
         var curInv = this.inventory;
